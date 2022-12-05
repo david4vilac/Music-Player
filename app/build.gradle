@@ -7,6 +7,10 @@ android {
     namespace 'com.david4vilac.lifecycle'
     compileSdk 32
 
+    viewBinding{
+        enabled = true
+    }
+
     defaultConfig {
         applicationId "com.david4vilac.lifecycle"
         minSdk 21

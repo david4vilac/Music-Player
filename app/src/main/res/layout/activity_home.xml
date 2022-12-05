@@ -9,20 +9,21 @@
 
     <SeekBar
         android:id="@+id/sbMusicActivityTwo"
-        style="@style/Widget.AppCompat.SeekBar"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_width="422dp"
+        android:layout_height="20dp"
         android:clickable="false"
         android:indeterminateOnly="false"
         android:splitTrack="false"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,34 +31,55 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:id="@+id/ivFooterSong"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/the_hell_song"
-            />
+            android:src="@drawable/the_hell_song" />
+
         <TextView
             android:id="@+id/tvSongNameTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nombre de la Canción"
-            />
+            android:text="Nombre de la Canción" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Interprete"
-            />
+            android:text="Interprete" />
+        <TextView
+            android:id="@+id/tvProgressTwo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0:00" />
+
         <ImageButton
             android:id="@+id/btnPlay2"
-            android:src="@drawable/ic_play_arrow"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginBottom="120dp"
+            android:src="@drawable/ic_play_arrow"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.085"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <Button
+            android:id="@+id/backActivity"
+            android:text="Atras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             />
-        
+
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSong"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/sbMusicActivityTwo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
