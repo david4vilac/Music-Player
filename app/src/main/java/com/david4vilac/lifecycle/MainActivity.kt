@@ -1,18 +1,13 @@
 package com.david4vilac.lifecycle
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.util.Log
-import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.TextView
-import android.widget.Toast
 import com.david4vilac.lifecycle.SongPrefs.Companion.prefs
 
 class MainActivity : AppCompatActivity() {
@@ -41,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             if (i == songArray.size){
                 i = 0
             }
-            Toast.makeText(this,"$i", Toast.LENGTH_SHORT).show()
             prefs.saveSong(songArray[i].mediaPlayer)
             prefs.saveSongName(songArray[i].name)
             prefs.saveSongAuthor(songArray[i].author)
@@ -62,7 +56,6 @@ class MainActivity : AppCompatActivity() {
             if (i < 0){
                 i = songArray.size - 1
             }
-            Toast.makeText(this,"${songArray.size}", Toast.LENGTH_SHORT).show()
             prefs.saveSong(songArray[i].mediaPlayer)
             prefs.saveSongName(songArray[i].name)
             prefs.saveSongAuthor(songArray[i].author)
@@ -80,7 +73,6 @@ class MainActivity : AppCompatActivity() {
         val randomButton: ImageButton = findViewById(R.id.randomButton)
         randomButton.setOnClickListener {
             val random1 = (songArray.indices).shuffled().last()
-            Toast.makeText(this,"$random1", Toast.LENGTH_SHORT).show()
             prefs.saveSong(songArray[random1].mediaPlayer)
             prefs.saveSongName(songArray[random1].name)
             prefs.saveSongAuthor(songArray[random1].author)
@@ -130,7 +122,6 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         Log.d("onResume","Probandoo")
         changeIconPlay()
-        Toast.makeText(this,"${AudioPlay.validator()}", Toast.LENGTH_SHORT).show()
         setDataMusic(i)
         super.onResume()
     }

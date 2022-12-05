@@ -22,14 +22,14 @@ class HomeActivity : AppCompatActivity() {
 
         val tvProgressTwo: TextView = findViewById(R.id.tvProgressTwo)
         val btnPlay2: ImageButton = findViewById(R.id.btnPlay2)
-        val backActivity: Button = findViewById(R.id.backActivity)
+        val ivFooterSong: ImageView = findViewById(R.id.ivFooterSong)
 
 
         setData()
         AudioPlay.stopButtonPlay(btnPlay2)
         AudioPlay.seekBarProcess(seekBar, tvProgressTwo)
 
-        backActivity.setOnClickListener {
+        ivFooterSong.setOnClickListener {
             finish()
         }
     }
@@ -37,6 +37,9 @@ class HomeActivity : AppCompatActivity() {
     fun setData(){
         val ivFooterSong: ImageView = findViewById(R.id.ivFooterSong)
         val tvSongNameTwo: TextView = findViewById(R.id.tvSongNameTwo)
+        val tvAuthorFooter: TextView = findViewById(R.id.tvAuthorFooter)
+
+        tvAuthorFooter.text = prefs.getSongAuthor()
         ivFooterSong.setImageResource(prefs.getImage())
         tvSongNameTwo.text = prefs.getSongName()
     }
@@ -44,13 +47,7 @@ class HomeActivity : AppCompatActivity() {
     override fun onResume() {
         Log.d("onResume","Hola")
         //AudioPlay.continuePlaying(this)
-        val playButton: ImageButton = findViewById(R.id.btnPlay2)
-        if(!AudioPlay.validator()){
-            playButton.setImageResource(R.drawable.ic_play_arrow)
-        }else{
-            playButton.setImageResource(R.drawable.ic_pause)
-        }
-        Toast.makeText(this,"${AudioPlay.validator()}", Toast.LENGTH_SHORT).show()
+        changeIconPlay()
         super.onResume()
     }
 
@@ -59,9 +56,18 @@ class HomeActivity : AppCompatActivity() {
         val rv = findViewById<RecyclerView>(R.id.rvSong)
         rv.adapter = AdaptadorSong(songArray, this)
         rv.layoutManager = LinearLayoutManager(this)
-
+        changeIconPlay()
         rv.setOnClickListener{
             Toast.makeText(this,"${AudioPlay.validator()}", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    fun changeIconPlay(){
+        val btnPlay2: ImageButton = findViewById(R.id.btnPlay2)
+        if(!AudioPlay.validator()){
+            btnPlay2.setImageResource(R.drawable.ic_play_arrow_white)
+        }else{
+            btnPlay2.setImageResource(R.drawable.ic_pause_white)
         }
     }
 

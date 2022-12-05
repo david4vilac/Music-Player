@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/color_back"
     tools:context=".MainActivity">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="247dp"
-        android:layout_height="239dp"
-        android:layout_marginTop="56dp"
+        android:layout_width="334dp"
+        android:layout_height="288dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/nothing_compares"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
@@ -21,9 +23,12 @@
         android:id="@+id/tvAuthor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="40dp"
-        android:text="Nombre Actor"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="44dp"
+        android:text="Nombre Cancion"
+        android:textSize="16dp"
+        android:textColor="?attr/colorOnSecondary"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
@@ -31,9 +36,10 @@
         android:id="@+id/tvSongName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
-        android:text="Nombre Canción"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="4dp"
+        android:text="Nombre Autor"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAuthor" />
 
@@ -41,15 +47,14 @@
         android:id="@+id/tvProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:layout_marginEnd="288dp"
+        android:layout_marginBottom="72dp"
         android:text="0:00"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toTopOf="@+id/backButton"
         app:layout_constraintEnd_toStartOf="@+id/tvFinish"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sbMusic"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
         android:id="@+id/sbMusic"
@@ -63,7 +68,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvSongName"
-        app:layout_constraintVertical_bias="0.428" />
+        app:layout_constraintVertical_bias="0.428"
+        android:progressBackgroundTint="@color/white"
+        />
 
 
     <ImageButton
@@ -72,11 +79,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="36dp"
-        android:background="@drawable/btn_bg"
+        android:background="@color/color_back"
         android:src="@drawable/ic_skip_next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toEndOf="@+id/btnPlay" />
 
     <ImageButton
@@ -99,7 +106,7 @@
         android:layout_height="50dp"
         android:layout_marginStart="104dp"
         android:layout_marginBottom="36dp"
-        android:background="@drawable/btn_bg"
+        android:background="@color/color_back"
         android:src="@drawable/ic_skip_previous"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -111,13 +118,12 @@
         android:id="@+id/tvFinish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="72dp"
         android:text="2:30"
+        android:textColor="?attr/colorOnSecondary"
         app:layout_constraintBottom_toTopOf="@+id/randomButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/sbMusic"
-        app:layout_constraintVertical_bias="0.022" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageButton
         android:id="@+id/randomButton"
@@ -125,11 +131,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginBottom="36dp"
-        android:background="@color/white"
-        android:src="@drawable/ic_repeat"
+        android:background="@color/color_back"
+        android:src="@drawable/ic_shuffle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/nextButton" />
 
     <ImageButton
@@ -138,11 +144,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="36dp"
-        android:background="@color/white"
+        android:background="@color/color_back"
         android:src="@drawable/ic_queue_music"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/backButton"
-        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,11 +17,13 @@ class AdaptadorSong (val songs: List<Song>, val con: HomeActivity)
     class ViewHolder(v: View): RecyclerView.ViewHolder(v){
         var songName: TextView
         var ivSong: ImageView
+        var tvSongAuthorView: TextView
         var rowSongLinear: ConstraintLayout
         init {
             songName = v.findViewById(R.id.tvSongNameView)
             ivSong = v.findViewById(R.id.ivSong)
             rowSongLinear = v.findViewById(R.id.rowSongLinear)
+            tvSongAuthorView = v.findViewById(R.id.tvSongAuthorView)
         }
     }
 
@@ -33,6 +35,7 @@ class AdaptadorSong (val songs: List<Song>, val con: HomeActivity)
     override fun onBindViewHolder(holder: AdaptadorSong.ViewHolder, position: Int) {
         val p = songs[position]
         holder.songName.text = p.name
+        holder.tvSongAuthorView.text = p.author
         holder.ivSong.setImageResource(p.image)
 
         val homeActivity = HomeActivity()
@@ -45,11 +48,10 @@ class AdaptadorSong (val songs: List<Song>, val con: HomeActivity)
                 prefs.saveImage(p.image)
                 prefs.saveSong(p.mediaPlayer)
 
+
                 AudioPlay.playAudio(con, prefs.getSong())
-                //homeActivity.setData()
-                con.showMessage(p.name)
                 con.setData()
-                Log.d("Cancion","${p.mediaPlayer}")
+                con.changeIconPlay()
             }
         }
 

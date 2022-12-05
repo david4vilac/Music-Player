@@ -28,8 +28,6 @@ class Prefs(context: Context) {
         return storage.getString(SHARE_NAME, "")!!
     }
 
-
-
     fun saveImage(image:Int){
         storage.edit().putInt(SHARE_IMAGE, image).apply()
     }
@@ -43,7 +41,7 @@ class Prefs(context: Context) {
     }
 
     fun getSong():Int{
-        return storage.getInt(SHARE_SONG_MEDIA, 0)!!
+        return storage.getInt(SHARE_SONG_MEDIA,0)!!
     }
 
     fun saveContador(i:Int){

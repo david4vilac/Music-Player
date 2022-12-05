@@ -17,7 +17,12 @@ object AudioPlay {
     private var handler = Handler()
 
     fun createAudio(c: Context){
-        mediaPlayer = MediaPlayer.create(c, prefs.getSong())
+        if(prefs.getSong() == 0){
+            mediaPlayer = MediaPlayer.create(c, R.raw.nothing_compares)
+        }else{
+            mediaPlayer = MediaPlayer.create(c, prefs.getSong())
+        }
+
     }
 
 
